@@ -1,25 +1,28 @@
+import { useNavigation } from '@react-navigation/native';
 import { Row, Text, Pressable } from 'native-base';
 
 export function EmptyPoolList() {
+  const {navigate} = useNavigation()
+
   return (
     <Row flexWrap="wrap" justifyContent="center">
       <Text color="white" fontSize="sm" textAlign="center">
-        Você ainda não está participando de {'\n'} nenhum bolão, que tal
+        You are not participating any Pools yet {"\n"} can you
       </Text>
 
-      <Pressable>
+      <Pressable onPress={()=> navigate('find')}>
           <Text textDecorationLine="underline" color="yellow.500" textDecoration="underline">
-            buscar um por código
+            search pool by code
           </Text>
       </Pressable>
 
       <Text color="white" fontSize="sm" textAlign="center" mx={1}>
-        ou
+        or
       </Text>
 
-      <Pressable>
+      <Pressable onPress={()=> navigate('new')}>
         <Text textDecorationLine="underline"  color="yellow.500">
-          criar um novo
+          create new one
         </Text>
       </Pressable>
 
